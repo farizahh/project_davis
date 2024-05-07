@@ -1,20 +1,22 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import streamlit as st
 
-# reading the database
+# Membaca database
 data = pd.read_csv("tips.csv")
 
-# Scatter plot with day against tip
-plt.scatter(data['day'], data['tip'], c=data['size'], 
-            s=data['total_bill'])
+# Menampilkan judul di halaman web
+st.title('Scatter Plot')
 
-# Adding Title to the Plot
+# Scatter plot dengan day melawan tip
+plt.scatter(data['day'], data['tip'])
+
+# Menambahkan Judul Plot
 plt.title("Scatter Plot")
 
-# Setting the X and Y labels
+# Mengatur label X dan Y
 plt.xlabel('Day')
 plt.ylabel('Tip')
 
-plt.colorbar()
-
-plt.show()
+# Menampilkan plot menggunakan Streamlit
+st.pyplot(plt)
