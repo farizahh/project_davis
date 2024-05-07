@@ -8,17 +8,15 @@ data = pd.read_csv("tips.csv")
 # Menampilkan judul di halaman web
 st.title('Scatter Plot')
 
-# Penyebaran plot dengan data tip
-plt.scatter(data['day'], data['tip'], c=data['size'], 
-            s=data['total_bill'])
+# Scatter plot dengan day melawan tip
+plt.scatter(data['day'], data['tip'])
 
-# Menambahkan judul dalam Plot
+# Menambahkan Judul Plot
 plt.title("Scatter Plot")
 
 # Mengatur label X dan Y
 plt.xlabel('Day')
 plt.ylabel('Tip')
 
-plt.colorbar()
-
-plt.show()
+# Menampilkan plot menggunakan Streamlit
+st.pyplot(plt)
